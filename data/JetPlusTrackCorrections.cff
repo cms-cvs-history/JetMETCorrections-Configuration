@@ -1,0 +1,46 @@
+# File: JetCorrections.cff
+# Author: O. Kodolova
+# Date: 1/24/07
+#
+# Jet corrections with tracks for the icone5 jets.
+# 
+
+   es_source JetPlusTrackCorrectorIcone5 = JetPlusTrackCorrectionService {
+            InputTag src2 = caloTowers
+            InputTag src3 = offlinePrimaryVerticesFromCTFTracks
+            untracked string inputTrackLabel = 'ctfWithMaterialTracks'
+            double rcalo = 0.5
+            double rvert = 0.5
+            int32 respalgo = 5
+            include "TrackingTools/TrackAssociator/data/default.cfi"
+            VInputTag ecalInputs = {ecalRecHit:EcalRecHitsEB, ecalRecHit:EcalRecHitsEE }
+
+            string label = 'JetPlusTrackCorrectorIcone5' 
+    }
+
+   es_source JetPlusTrackZSPCorrectorIcone5 = JetPlusTrackCorrectionService {
+            InputTag src2 = caloTowers
+            InputTag src3 = offlinePrimaryVerticesFromCTFTracks
+            untracked string inputTrackLabel = 'ctfWithMaterialTracks'
+            double rcalo = 0.5
+            double rvert = 0.5
+            int32 respalgo = 5
+            include "TrackingTools/TrackAssociator/data/default.cfi"
+            VInputTag ecalInputs = {ecalRecHit:EcalRecHitsEB, ecalRecHit:EcalRecHitsEE }
+
+            string label = 'JetPlusTrackZSPCorrectorIcone5' 
+    }
+
+	module JetPlusTrackCorJetIcone5 = JetCorrectionProducer {
+                InputTag src   = iterativeCone5CaloJets
+                vstring correctors = {"JetPlusTrackCorrectorIcone5"}
+                untracked string alias = "JetPlusTrackCorJetIcone5"
+        }
+	
+	module JetPlusTrackZSPCorJetIcone5 = JetCorrectionProducer {
+                InputTag src   = ZSPJetCorJetIcone5
+                vstring correctors = {"JetPlusTrackZSPCorrectorIcone5"}
+                untracked string alias = "JetPlusTrackZSPCorJetIcone5"
+        }
+
+        sequence JetPlusTrackCorrections = {  JetPlusTrackCorJetIcone5,JetPlusTrackZSPCorJetIcone5 }
