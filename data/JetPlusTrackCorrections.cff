@@ -2,45 +2,29 @@
 # Author: O. Kodolova
 # Date: 1/24/07
 #
-# Jet corrections with tracks for the icone5 jets.
+# Jet corrections with tracks for the icone5 jets with ZSP corrections.
 # 
 
-   es_source JetPlusTrackCorrectorIcone5 = JetPlusTrackCorrectionService {
-            InputTag src2 = caloTowers
-            InputTag src3 = offlinePrimaryVerticesFromCTFTracks
-            untracked string inputTrackLabel = 'ctfWithMaterialTracks'
-            double rcalo = 0.5
-            double rvert = 0.5
-            int32 respalgo = 5
-            include "TrackingTools/TrackAssociator/data/default.cfi"
-            VInputTag ecalInputs = {ecalRecHit:EcalRecHitsEB, ecalRecHit:EcalRecHitsEE }
-
-            string label = 'JetPlusTrackCorrectorIcone5' 
-    }
+   include "RecoJets/Configuration/data/RecoJetAssociations.cff"
+   replace ic5JetTracksAssociatorAtVertex.InputTag jets = ZSPJetCorJetIcone5
+   replace ic5JetTracksAssociatorAtCaloFace.InputTag jets = ZSPJetCorJetIcone5
+   replace ic5JetExtender.InputTag jets = ZSPJetCorJetIcone5
+   replace ic5JetExtender.InputTag jet2TracksAtVX = ZSPJetCorJetIcone5
+   replace ic5JetExtender.InputTag jet2TracksAtVX = ZSPJetCorJetIcone5
+   
 
    es_source JetPlusTrackZSPCorrectorIcone5 = JetPlusTrackCorrectionService {
-            InputTag src2 = caloTowers
-            InputTag src3 = offlinePrimaryVerticesFromCTFTracks
-            untracked string inputTrackLabel = 'ctfWithMaterialTracks'
-            double rcalo = 0.5
-            double rvert = 0.5
+            InputTag JetTrackCollectionAtVertex = ic5JetTracksAssociatorAtVertex
+            InputTag JetTrackCollectionAtCalo = ic5JetTracksAssociatorAtCaloFace
             int32 respalgo = 5
-            include "TrackingTools/TrackAssociator/data/default.cfi"
-            VInputTag ecalInputs = {ecalRecHit:EcalRecHitsEB, ecalRecHit:EcalRecHitsEE }
-
             string label = 'JetPlusTrackZSPCorrectorIcone5' 
     }
 
-	module JetPlusTrackCorJetIcone5 = JetCorrectionProducer {
-                InputTag src   = iterativeCone5CaloJets
-                vstring correctors = {"JetPlusTrackCorrectorIcone5"}
-                untracked string alias = "JetPlusTrackCorJetIcone5"
-        }
 	
-	module JetPlusTrackZSPCorJetIcone5 = JetCorrectionProducer {
+    module JetPlusTrackZSPCorJetIcone5 = JetCorrectionProducer {
                 InputTag src   = ZSPJetCorJetIcone5
                 vstring correctors = {"JetPlusTrackZSPCorrectorIcone5"}
                 untracked string alias = "JetPlusTrackZSPCorJetIcone5"
-        }
+    }
 
-        sequence JetPlusTrackCorrections = {  JetPlusTrackCorJetIcone5,JetPlusTrackZSPCorJetIcone5 }
+        sequence JetPlusTrackCorrections = { ic5RecoJetAssociations, JetPlusTrackZSPCorJetIcone5 }
