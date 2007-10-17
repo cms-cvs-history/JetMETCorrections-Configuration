@@ -18,13 +18,13 @@
             string label = 'MCJetCorrectorMcone7' 
     }
 
-   es_source MCJetCorrectorfastjet6 = MCJetCorrectionService {
+   es_source MCJetCorrectorKt6 = MCJetCorrectionService {
             string tagName = 'CMSSW_152_fastjet6'
-            string label = 'MCJetCorrectorfastjet6'
+            string label = 'MCJetCorrectorKt6'
     }
 
 # prefer the one
-   es_prefer MCJetCorrectorfastjet6 = MCJetCorrectionService {}
+   es_prefer MCJetCorrectorKt6 = MCJetCorrectionService {}
 
 
 	module MCJetCorJetIcone5 = JetCorrectionProducer {
@@ -51,11 +51,11 @@
                 untracked string alias = "MCJetCorJetMcone7"
         }
 
-        module MCJetCorJetfastjet6 = JetCorrectionProducer {
-                InputTag src = fastjet6CaloJets
-                vstring correctors = {"MCJetCorrectorfastjet6"}
-                untracked string alias = "MCJetCorJetfastjet6"
+        module MCJetCorJetKt6 = JetCorrectionProducer {
+                InputTag src = kt6CaloJets
+                vstring correctors = {"MCJetCorrectorKt6"}
+                untracked string alias = "MCJetCorJetKt6"
         }
  
 
-        sequence MCJetCorrections = {MCJetCorJetIcone5,MCJetCorJetIcone7,MCJetCorJetMcone5,MCJetCorJetMcone7,MCJetCorJetfastjet6}
+        sequence MCJetCorrections = {MCJetCorJetIcone5,MCJetCorJetIcone7,MCJetCorJetMcone5,MCJetCorJetMcone7,MCJetCorJetKt6}
