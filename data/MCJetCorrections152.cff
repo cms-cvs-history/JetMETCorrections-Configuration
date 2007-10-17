@@ -23,6 +23,9 @@
             string label = 'MCJetCorrectorfastjet6'
     }
 
+# prefer the one
+   es_prefer MCJetCorrectorfastjet6 = MCJetCorrectionService {}
+
 
 	module MCJetCorJetIcone5 = JetCorrectionProducer {
                 InputTag src   = iterativeCone5CaloJets
