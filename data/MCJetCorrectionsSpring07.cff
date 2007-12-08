@@ -32,9 +32,6 @@
             string label = 'MCJetCorrectorFastjet6'
     }
 
-# prefer the one
-   es_prefer MCJetCorrectorfastjet6 = MCJetCorrectionService {}
-
 #   
 #   Define the producers of corrected jet collections for each algorithm.
 #

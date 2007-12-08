@@ -18,14 +18,25 @@
             string label = 'MCJetCorrectorMcone7' 
     }
 
-   es_source MCJetCorrectorKt6 = MCJetCorrectionService {
-            string tagName = 'CMSSW_152_fastjet6'
-            string label = 'MCJetCorrectorKt6'
+   es_source MCJetCorrectorScone5 = MCJetCorrectionService {
+            string tagName = 'CMSSW_152_sisCone5'
+            string label = 'MCJetCorrectorScone5' 
     }
 
-# prefer the one
-   es_prefer MCJetCorrectorKt6 = MCJetCorrectionService {}
+   es_source MCJetCorrectorScone7 = MCJetCorrectionService {
+            string tagName = 'CMSSW_152_sisCone7'
+            string label = 'MCJetCorrectorScone7' 
+    }
 
+   es_source MCJetCorrectorktjet6 = MCJetCorrectionService {
+            string tagName = 'CMSSW_152_fastjet6'
+            string label = 'MCJetCorrectorktjet6'
+    }
+   
+   es_source MCJetCorrectorktjet4 = MCJetCorrectionService {
+            string tagName = 'CMSSW_152_fastjet4'
+            string label = 'MCJetCorrectorktjet4'
+    }	     
 
 	module MCJetCorJetIcone5 = JetCorrectionProducer {
                 InputTag src   = iterativeCone5CaloJets
@@ -51,11 +62,28 @@
                 untracked string alias = "MCJetCorJetMcone7"
         }
 
-        module MCJetCorJetKt6 = JetCorrectionProducer {
-                InputTag src = kt6CaloJets
-                vstring correctors = {"MCJetCorrectorKt6"}
-                untracked string alias = "MCJetCorJetKt6"
+        module MCJetCorJetktjet4 = JetCorrectionProducer {
+                InputTag src = ktjet4CaloJets
+                vstring correctors = {"MCJetCorrectorktjet4"}
+                untracked string alias = "MCJetCorJetktjet4"
+        }
+
+        module MCJetCorJetktjet6 = JetCorrectionProducer {
+                InputTag src = ktjet6CaloJets
+                vstring correctors = {"MCJetCorrectorktjet6"}
+                untracked string alias = "MCJetCorJetktjet6"
         }
  
+        module MCJetCorJetScone5 = JetCorrectionProducer {
+                InputTag src = sisCone5CaloJets
+                vstring correctors = {"MCJetCorrectorScone5"}
+                untracked string alias = "MCJetCorJetScone5"
+        }
 
-        sequence MCJetCorrections = {MCJetCorJetIcone5,MCJetCorJetIcone7,MCJetCorJetMcone5,MCJetCorJetMcone7,MCJetCorJetKt6}
+	module MCJetCorJetScone7 = JetCorrectionProducer {
+                InputTag src = sisCone7CaloJets
+                vstring correctors = {"MCJetCorrectorScone7"}
+                untracked string alias = "MCJetCorJetScone7"
+        } 
+
+        sequence MCJetCorrections = {MCJetCorJetIcone5,MCJetCorJetIcone7,MCJetCorJetMcone5,MCJetCorJetMcone7,MCJetCorJetktjet4,MCJetCorJetktjet6,MCJetCorJetScone5, MCJetCorJetScone7}
