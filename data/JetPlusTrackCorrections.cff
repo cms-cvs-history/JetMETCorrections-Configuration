@@ -6,16 +6,14 @@
 # 
 
    include "RecoJets/Configuration/data/RecoJetAssociations.cff"
-   replace ic5JetTracksAssociatorAtVertex.InputTag jets = ZSPJetCorJetIcone5
-   replace ic5JetTracksAssociatorAtCaloFace.InputTag jets = ZSPJetCorJetIcone5
-   replace ic5JetExtender.InputTag jets = ZSPJetCorJetIcone5
-   replace ic5JetExtender.InputTag jet2TracksAtVX = ZSPJetCorJetIcone5
-   replace ic5JetExtender.InputTag jet2TracksAtVX = ZSPJetCorJetIcone5
+   replace iterativeCone5JetTracksAssociatorAtVertex.jets = ZSPJetCorJetIcone5
+   replace iterativeCone5JetTracksAssociatorAtCaloFace.jets = ZSPJetCorJetIcone5
+   replace iterativeCone5JetExtender.jets = ZSPJetCorJetIcone5
    
 
    es_source JetPlusTrackZSPCorrectorIcone5 = JetPlusTrackCorrectionService {
-            InputTag JetTrackCollectionAtVertex = ic5JetTracksAssociatorAtVertex
-            InputTag JetTrackCollectionAtCalo = ic5JetTracksAssociatorAtCaloFace
+            InputTag JetTrackCollectionAtVertex = iterativeCone5JetTracksAssociatorAtVertex
+            InputTag JetTrackCollectionAtCalo = iterativeCone5JetTracksAssociatorAtCaloFace
             int32 respalgo = 5
             string label = 'JetPlusTrackZSPCorrectorIcone5' 
     }
@@ -27,4 +25,4 @@
                 untracked string alias = "JetPlusTrackZSPCorJetIcone5"
     }
 
-        sequence JetPlusTrackCorrections = { ic5RecoJetAssociations, JetPlusTrackZSPCorJetIcone5 }
+        sequence JetPlusTrackCorrections = { recoJetAssociations, JetPlusTrackZSPCorJetIcone5 }
