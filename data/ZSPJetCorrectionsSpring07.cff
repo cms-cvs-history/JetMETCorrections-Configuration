@@ -1,5 +1,8 @@
 # Jet corrections.
 #
+
+   include "JetMETCorrections/Configuration/data/JetCorrectionsRecord.cfi"
+
 # Define the correction services for each algorithm.
 #
    es_source ZSPJetCorrectorIcone5 = ZSPJetCorrectionService {

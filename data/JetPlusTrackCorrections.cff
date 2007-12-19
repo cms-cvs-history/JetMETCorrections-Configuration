@@ -5,6 +5,8 @@
 # Jet corrections with tracks for the icone5 jets with ZSP corrections.
 # 
 
+   include "JetMETCorrections/Configuration/data/JetCorrectionsRecord.cfi"
+
    include "RecoJets/Configuration/data/RecoJetAssociations.cff"
    replace iterativeCone5JetTracksAssociatorAtVertex.jets = ZSPJetCorJetIcone5
    replace iterativeCone5JetTracksAssociatorAtCaloFace.jets = ZSPJetCorJetIcone5

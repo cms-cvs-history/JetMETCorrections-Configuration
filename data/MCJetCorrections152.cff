@@ -1,3 +1,5 @@
+   include "JetMETCorrections/Configuration/data/JetCorrectionsRecord.cfi"
+
    es_source MCJetCorrectorIcone5 = MCJetCorrectionService {
             string tagName = 'CMSSW_152_iterativeCone5'
             string label = 'MCJetCorrectorIcone5' 
