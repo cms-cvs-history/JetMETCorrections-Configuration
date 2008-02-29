@@ -5,21 +5,6 @@
             string label = 'MCJetCorrectorIcone5' 
     }
 
-   es_source MCJetCorrectorIcone7 = MCJetCorrectionService {
-            string tagName = 'CMSSW_152_iterativeCone7'
-            string label = 'MCJetCorrectorIcone7' 
-    }
-
-   es_source MCJetCorrectorMcone5 = MCJetCorrectionService {
-            string tagName = 'CMSSW_152_midPointCone5'
-            string label = 'MCJetCorrectorMcone5' 
-    }
-
-   es_source MCJetCorrectorMcone7 = MCJetCorrectionService {
-            string tagName = 'CMSSW_152_midPointCone7'
-            string label = 'MCJetCorrectorMcone7' 
-    }
-
    es_source MCJetCorrectorScone5 = MCJetCorrectionService {
             string tagName = 'CMSSW_152_sisCone5'
             string label = 'MCJetCorrectorScone5' 
@@ -46,32 +31,14 @@
                 untracked string alias = "MCJetCorJetIcone5"
         }
 
-        module MCJetCorJetIcone7 = JetCorrectionProducer {
-                InputTag src   = iterativeCone7CaloJets
-                vstring correctors = {"MCJetCorrectorIcone7"}
-                untracked string alias = "MCJetCorJetIcone7"
-        }
-
-	module MCJetCorJetMcone5 = JetCorrectionProducer {
-                InputTag src = midPointCone5CaloJets
-                vstring correctors = {"MCJetCorrectorMcone5"}
-                untracked string alias = "MCJetCorJetMcone5"
-        }
-
-	module MCJetCorJetMcone7 = JetCorrectionProducer {
-                InputTag src = midPointCone7CaloJets
-                vstring correctors = {"MCJetCorrectorMcone7"}
-                untracked string alias = "MCJetCorJetMcone7"
-        }
-
         module MCJetCorJetktjet4 = JetCorrectionProducer {
-                InputTag src = ktjet4CaloJets
+                InputTag src = kt4CaloJets
                 vstring correctors = {"MCJetCorrectorktjet4"}
                 untracked string alias = "MCJetCorJetktjet4"
         }
 
         module MCJetCorJetktjet6 = JetCorrectionProducer {
-                InputTag src = ktjet6CaloJets
+                InputTag src = kt6CaloJets
                 vstring correctors = {"MCJetCorrectorktjet6"}
                 untracked string alias = "MCJetCorJetktjet6"
         }
@@ -88,4 +55,4 @@
                 untracked string alias = "MCJetCorJetScone7"
         } 
 
-        sequence MCJetCorrections = {MCJetCorJetIcone5,MCJetCorJetIcone7,MCJetCorJetMcone5,MCJetCorJetMcone7,MCJetCorJetktjet4,MCJetCorJetktjet6,MCJetCorJetScone5, MCJetCorJetScone7}
+        sequence MCJetCorrections = {MCJetCorJetIcone5,MCJetCorJetktjet4,MCJetCorJetktjet6,MCJetCorJetScone5, MCJetCorJetScone7}
