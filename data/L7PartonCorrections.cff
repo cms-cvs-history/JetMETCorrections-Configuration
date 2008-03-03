@@ -1,0 +1,57 @@
+// services providing different jet parton corrections
+
+   es_source L7PartonJetCorrectorIC5gJet = L7PartonCorrectionService {
+            string label = 'L7PartonJetCorrectorIC5gJet'
+            string tagName = 'L7parton_IC5_080301'
+            string section = 'gJ'
+    }
+
+   es_source L7PartonJetCorrectorIC5qJet = L7PartonCorrectionService {
+            string label = 'L7PartonJetCorrectorIC5qJet'
+            string tagName = 'L7parton_IC5_080301'
+            string section = 'qJ'
+    }
+
+   es_source L7PartonJetCorrectorIC5cJet = L7PartonCorrectionService {
+            string label = 'L7PartonJetCorrectorIC5cJet'
+            string tagName = 'L7parton_IC5_080301'
+            string section = 'cJ'
+    }
+
+   es_source L7PartonJetCorrectorIC5bJet = L7PartonCorrectionService {
+            string label = 'L7PartonJetCorrectorIC5bJet'
+            string tagName = 'L7parton_IC5_080301'
+            string section = 'bJ'
+    }
+
+   es_source L7PartonJetCorrectorIC5jJet = L7PartonCorrectionService {
+            string label = 'L7PartonJetCorrectorIC5jJet'
+            string tagName = 'L7parton_IC5_080301'
+            string section = 'jJ'
+    }
+
+   es_source L7PartonJetCorrectorIC5qTop = L7PartonCorrectionService {
+            string label = 'L7PartonJetCorrectorIC5qTop'
+            string tagName = 'L7parton_IC5_080301'
+            string section = 'qT'
+    }
+
+   es_source L7PartonJetCorrectorIC5cTop = L7PartonCorrectionService {
+            string label = 'L7PartonJetCorrectorIC5cTop'
+            string tagName = 'L7parton_IC5_080301'
+            string section = 'cT'
+    }
+
+   es_source L7PartonJetCorrectorIC5bTop = L7PartonCorrectionService {
+            string label = 'L7PartonJetCorrectorIC5bTop'
+            string tagName = 'L7parton_IC5_080301'
+            string section = 'bT'
+    }
+
+   es_source L7PartonJetCorrectorIC5tTop = L7PartonCorrectionService {
+            string label = 'L7PartonJetCorrectorIC5tTop'
+            string tagName = 'L7parton_IC5_080301'
+            string section = 'tT'
+    }
+
+
