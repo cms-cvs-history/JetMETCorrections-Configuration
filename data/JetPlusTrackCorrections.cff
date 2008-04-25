@@ -6,17 +6,45 @@
 # 
 
    include "JetMETCorrections/Configuration/data/JetCorrectionsRecord.cfi"
-
-   include "RecoJets/Configuration/data/RecoJetAssociations.cff"
-   replace iterativeCone5JetTracksAssociatorAtVertex.jets = ZSPJetCorJetIcone5
-   replace iterativeCone5JetTracksAssociatorAtCaloFace.jets = ZSPJetCorJetIcone5
-   replace iterativeCone5JetExtender.jets = ZSPJetCorJetIcone5
+   include "JetMETCorrections/Configuration/data/ZSPJetCorrections152.cff"
    
+#   include "RecoJets/Configuration/data/RecoJetAssociations.cff"
+#   replace iterativeCone5JetTracksAssociatorAtVertex.jets = ZSPJetCorJetIcone5
+#   replace iterativeCone5JetTracksAssociatorAtCaloFace.jets = ZSPJetCorJetIcone5
+#   replace iterativeCone5JetExtender.jets = ZSPJetCorJetIcone5
+   
+include "MagneticField/Engine/data/volumeBasedMagneticField.cfi"  #magnetic field
+include "TrackPropagation/SteppingHelixPropagator/data/SteppingHelixPropagatorAlong.cfi" #propagator
 
+include "RecoJets/JetAssociationProducers/data/j2tParametersCALO.cfi"
+include "RecoJets/JetAssociationProducers/data/j2tParametersVX.cfi"
+
+ module iterativeCone5ZSPJetTracksAssociatorAtVertex = JetTracksAssociatorAtVertex {
+       using j2tParametersVX
+       InputTag jets   = ZSPJetCorJetIcone5
+     }
+
+ module iterativeCone5ZSPJetTracksAssociatorAtCaloFace = JetTracksAssociatorAtCaloFace {
+       using j2tParametersCALO
+       InputTag jets   = ZSPJetCorJetIcone5
+     }
+
+ module iterativeCone5ZSPJetExtender = JetExtender {
+       InputTag jets   = ZSPJetCorJetIcone5
+       InputTag jet2TracksAtVX = iterativeCone5ZSPJetTracksAssociatorAtVertex
+       InputTag jet2TracksAtCALO = iterativeCone5ZSPJetTracksAssociatorAtCaloFace
+       double coneSize = 0.5
+     }
+   sequence iterativeCone5ZSPJTA = {
+      iterativeCone5ZSPJetTracksAssociatorAtVertex, iterativeCone5ZSPJetTracksAssociatorAtCaloFace, iterativeCone5ZSPJetExtender
+   }
+     
    es_source JetPlusTrackZSPCorrectorIcone5 = JetPlusTrackCorrectionService {
-            InputTag JetTrackCollectionAtVertex = iterativeCone5JetTracksAssociatorAtVertex
-            InputTag JetTrackCollectionAtCalo = iterativeCone5JetTracksAssociatorAtCaloFace
+            InputTag JetTrackCollectionAtVertex = iterativeCone5ZSPJetTracksAssociatorAtVertex
+            InputTag JetTrackCollectionAtCalo = iterativeCone5ZSPJetTracksAssociatorAtCaloFace
             int32 respalgo = 5
+	    bool AddOutOfConeTracks = true
+	    string NonEfficiencyFile = 'CMSSW_167_TrackNonEff'
             string label = 'JetPlusTrackZSPCorrectorIcone5' 
     }
 
@@ -26,5 +54,7 @@
                 vstring correctors = {"JetPlusTrackZSPCorrectorIcone5"}
                 untracked string alias = "JetPlusTrackZSPCorJetIcone5"
     }
+    
 
-        sequence JetPlusTrackCorrections = { recoJetAssociations, JetPlusTrackZSPCorJetIcone5 }
+####        sequence JetPlusTrackCorrections = { ZSPJetCorrections, JetPlusTrackZSPCorJetIcone5 }
+        sequence JetPlusTrackCorrections = { ZSPJetCorrections, iterativeCone5ZSPJTA, JetPlusTrackZSPCorJetIcone5 }
