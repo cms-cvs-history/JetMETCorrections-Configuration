@@ -8,16 +8,8 @@
    include "JetMETCorrections/Configuration/data/JetCorrectionsRecord.cfi"
    include "JetMETCorrections/Configuration/data/ZSPJetCorrections152.cff"
    
-#   include "RecoJets/Configuration/data/RecoJetAssociations.cff"
-#   replace iterativeCone5JetTracksAssociatorAtVertex.jets = ZSPJetCorJetIcone5
-#   replace iterativeCone5JetTracksAssociatorAtCaloFace.jets = ZSPJetCorJetIcone5
-#   replace iterativeCone5JetExtender.jets = ZSPJetCorJetIcone5
-   
-include "MagneticField/Engine/data/volumeBasedMagneticField.cfi"  #magnetic field
-include "TrackPropagation/SteppingHelixPropagator/data/SteppingHelixPropagatorAlong.cfi" #propagator
-
-include "RecoJets/JetAssociationProducers/data/j2tParametersCALO.cfi"
-include "RecoJets/JetAssociationProducers/data/j2tParametersVX.cfi"
+   include "RecoJets/JetAssociationProducers/data/j2tParametersCALO.cfi"
+   include "RecoJets/JetAssociationProducers/data/j2tParametersVX.cfi"
 
  module iterativeCone5ZSPJetTracksAssociatorAtVertex = JetTracksAssociatorAtVertex {
        using j2tParametersVX
@@ -35,6 +27,7 @@ include "RecoJets/JetAssociationProducers/data/j2tParametersVX.cfi"
        InputTag jet2TracksAtCALO = iterativeCone5ZSPJetTracksAssociatorAtCaloFace
        double coneSize = 0.5
      }
+
    sequence iterativeCone5ZSPJTA = {
       iterativeCone5ZSPJetTracksAssociatorAtVertex, iterativeCone5ZSPJetTracksAssociatorAtCaloFace, iterativeCone5ZSPJetExtender
    }
@@ -45,6 +38,7 @@ include "RecoJets/JetAssociationProducers/data/j2tParametersVX.cfi"
             int32 respalgo = 5
 	    bool AddOutOfConeTracks = true
 	    string NonEfficiencyFile = 'CMSSW_167_TrackNonEff'
+            string NonEfficiencyFileResp = 'CMSSW_167_TrackNonEff_Resp_one'
             string label = 'JetPlusTrackZSPCorrectorIcone5' 
     }
 
@@ -56,5 +50,4 @@ include "RecoJets/JetAssociationProducers/data/j2tParametersVX.cfi"
     }
     
 
-####        sequence JetPlusTrackCorrections = { ZSPJetCorrections, JetPlusTrackZSPCorJetIcone5 }
         sequence JetPlusTrackCorrections = { ZSPJetCorrections, iterativeCone5ZSPJTA, JetPlusTrackZSPCorJetIcone5 }
