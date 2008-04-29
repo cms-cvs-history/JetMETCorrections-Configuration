@@ -1,0 +1,64 @@
+es_source L2JetCorrectorIcone5 = L2RelativeCorrectionService { 
+string tagName = 'CSA07_perfect_L2Relative_iterativeCone5' 
+string label = 'L2RelativeJetCorrectorIcone5' 
+} 
+es_source L2JetCorrectorMcone5 = L2RelativeCorrectionService { 
+string tagName = 'CSA07_perfect_L2Relative_midPointCone5' 
+string label = 'L2RelativeJetCorrectorMcone5' 
+} 
+es_source L2JetCorrectorMcone7 = L2RelativeCorrectionService { 
+string tagName = 'CSA07_perfect_L2Relative_midPointCone7' 
+string label = 'L2RelativeJetCorrectorMcone7' 
+} 
+es_source L2JetCorrectorScone5 = L2RelativeCorrectionService { 
+string tagName = 'CSA07_perfect_L2Relative_sisCone5' 
+string label = 'L2RelativeJetCorrectorScone5' 
+} 
+es_source L2JetCorrectorScone7 = L2RelativeCorrectionService { 
+string tagName = 'CSA07_perfect_L2Relative_sisCone7' 
+string label = 'L2RelativeJetCorrectorScone7' 
+}
+es_source L2JetCorrectorFKt6 = L2RelativeCorrectionService { 
+string tagName = 'CSA07_perfect_L2Relative_fastjet6' 
+string label = 'L2RelativeJetCorrectorFKt6' 
+}
+es_source L2JetCorrectorFKt4 = L2RelativeCorrectionService { 
+string tagName = 'CSA07_perfect_L2Relative_fastjet4' 
+string label = 'L2RelativeJetCorrectorFKt4' 
+}  
+//************** Modules ************************************* 
+module L2JetCorJetIcone5 = JetCorrectionProducer { 
+InputTag src   = iterativeCone5CaloJets 
+vstring correctors = {"L2RelativeJetCorrectorIcone5"} 
+untracked string alias = "L2JetCorJetIcone5" 
+} 
+module L2JetCorJetMcone5 = JetCorrectionProducer { 
+InputTag src   = midPointCone5CaloJets 
+vstring correctors = {"L2RelativeJetCorrectorMcone5"} 
+untracked string alias = "L2JetCorJetMcone5" 
+} 
+module L2JetCorJetMcone7 = JetCorrectionProducer { 
+InputTag src   = midPointCone7CaloJets 
+vstring correctors = {"L2RelativeJetCorrectorMcone7"} 
+untracked string alias = "L2JetCorJetMcone7" 
+}
+module L2JetCorJetScone5 = JetCorrectionProducer { 
+InputTag src   = sisCone5CaloJets 
+vstring correctors = {"L2RelativeJetCorrectorScone5"} 
+untracked string alias = "L2JetCorJetScone5" 
+} 
+module L2JetCorJetScone7 = JetCorrectionProducer { 
+InputTag src   = sisCone7CaloJets 
+vstring correctors = {"L2RelativeJetCorrectorScone7"} 
+untracked string alias = "L2JetCorJetScone7" 
+} 
+module L2JetCorJetFKt6 = JetCorrectionProducer { 
+InputTag src   = fastjet6CaloJets 
+vstring correctors = {"L2RelativeJetCorrectorFKt6"} 
+untracked string alias = "L2JetCorJetFKt6" 
+}
+module L2JetCorJetFKt4 = JetCorrectionProducer { 
+InputTag src   = fastjet4CaloJets 
+vstring correctors = {"L2RelativeJetCorrectorFKt4"} 
+untracked string alias = "L2JetCorJetFKt4" 
+}   
