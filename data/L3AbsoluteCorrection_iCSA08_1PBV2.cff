@@ -1,0 +1,19 @@
+es_source L3JetCorrectorScone7 = L3AbsoluteCorrectionService { 
+string tagName = 'iCSA08_1PBV2_L3Absolute_Scone7' 
+string label = 'L3AbsoluteJetCorrectorScone7' 
+}  
+es_source L3JetCorrectorKt6 = L3AbsoluteCorrectionService { 
+string tagName = 'iCSA08_1PBV2_L3Absolute_Kt6' 
+string label = 'L3AbsoluteJetCorrectorKt6' 
+}
+//************** Modules *************************************
+module L3JetCorJetScone7 = JetCorrectionProducer { 
+InputTag src   = L2JetCorJetScone7 
+vstring correctors = {"L3AbsoluteJetCorrectorScone7"} 
+untracked string alias = "L3JetCorJetScone7" 
+} 
+module L3JetCorJetKt6 = JetCorrectionProducer { 
+InputTag src   = L2JetCorJetKt6 
+vstring correctors = {"L3AbsoluteJetCorrectorKt6"} 
+untracked string alias = "L3JetCorJetKt6" 
+} 
