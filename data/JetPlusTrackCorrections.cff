@@ -38,7 +38,7 @@
             int32 respalgo = 5
 	    bool AddOutOfConeTracks = true
 	    string NonEfficiencyFile = 'CMSSW_167_TrackNonEff'
-            string NonEfficiencyFileResp = 'CMSSW_167_TrackNonEff_Resp_one'
+            string NonEfficiencyFileResp = 'CMSSW_167_TrackNonEffLeakage'
             string label = 'JetPlusTrackZSPCorrectorIcone5' 
     }
 
