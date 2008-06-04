@@ -1,6 +1,3 @@
-include "JetMETCorrections/Configuration/data/L2RelativeCorrection_iCSA08_1PBV2.cff" 
-include "JetMETCorrections/Configuration/data/L3AbsoluteCorrection_iCSA08_1PBV2.cff" 
-
 es_source L2L3JetCorrectorScone7 = JetCorrectionServiceChain { 
 vstring correctors = {"L2RelativeJetCorrectorScone7", "L3AbsoluteJetCorrectorScone7"}
 string label = 'L2L3JetCorrectorScone7' 

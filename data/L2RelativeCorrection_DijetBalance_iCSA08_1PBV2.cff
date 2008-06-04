@@ -1,10 +1,10 @@
 //**************** MC truth corrections **********************
 es_source L2JetCorrectorScone7 = L2RelativeCorrectionService { 
-string tagName = 'iCSA08_1PBV2_L2Relative_Scone7' 
+string tagName = 'iCSA08_1PBV2_DijetBalance_L2Relative_Scone7' 
 string label = 'L2RelativeJetCorrectorScone7' 
 }
 es_source L2JetCorrectorKt6 = L2RelativeCorrectionService { 
-string tagName = 'iCSA08_1PBV2_L2Relative_Kt6' 
+string tagName = 'iCSA08_1PBV2_DijetBalance_L2Relative_Kt6' 
 string label = 'L2RelativeJetCorrectorKt6' 
 }
 //************** Modules ************************************* 
