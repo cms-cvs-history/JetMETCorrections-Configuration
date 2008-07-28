@@ -1,0 +1,56 @@
+//**************** Corrections Services **********************
+es_source L2JetCorrectorIcone5 = L2RelativeCorrectionService { 
+string tagName = 'iCSA08_S156_L2Relative_Icone5' 
+string label = 'L2RelativeJetCorrectorIcone5' 
+}
+es_source L2JetCorrectorPFIcone5 = L2RelativeCorrectionService { 
+string tagName = 'iCSA08_S156_L2Relative_PFIcone5' 
+string label = 'L2RelativeJetCorrectorPFIcone5' 
+}
+es_source L2JetCorrectorScone5 = L2RelativeCorrectionService { 
+string tagName = 'iCSA08_S156_L2Relative_Scone5' 
+string label = 'L2RelativeJetCorrectorScone5' 
+}
+es_source L2JetCorrectorScone7 = L2RelativeCorrectionService { 
+string tagName = 'iCSA08_S156_L2Relative_Scone7' 
+string label = 'L2RelativeJetCorrectorScone7' 
+}
+es_source L2JetCorrectorKt4 = L2RelativeCorrectionService { 
+string tagName = 'iCSA08_S156_L2Relative_Kt4' 
+string label = 'L2RelativeJetCorrectorKt4' 
+}
+es_source L2JetCorrectorKt6 = L2RelativeCorrectionService { 
+string tagName = 'iCSA08_S156_L2Relative_Kt6' 
+string label = 'L2RelativeJetCorrectorKt6' 
+}
+//************** Modules ************************************* 
+module L2JetCorJetIcone5 = JetCorrectionProducer { 
+InputTag src   = iterativeCone5CaloJets 
+vstring correctors = {"L2RelativeJetCorrectorIcone5"} 
+untracked string alias = "L2JetCorJetIcone5" 
+}
+module L2JetCorJetPFIcone5 = JetCorrectionProducer { 
+InputTag src   = iterativeCone5PFJets 
+vstring correctors = {"L2RelativeJetCorrectorPFIcone5"} 
+untracked string alias = "L2JetCorJetPFIcone5" 
+}
+module L2JetCorJetScone5 = JetCorrectionProducer { 
+InputTag src   = sisCone5CaloJets 
+vstring correctors = {"L2RelativeJetCorrectorScone5"} 
+untracked string alias = "L2JetCorJetScone5" 
+}
+module L2JetCorJetScone7 = JetCorrectionProducer { 
+InputTag src   = sisCone7CaloJets 
+vstring correctors = {"L2RelativeJetCorrectorScone7"} 
+untracked string alias = "L2JetCorJetScone7" 
+} 
+module L2JetCorJetKt6 = JetCorrectionProducer { 
+InputTag src   = kt6CaloJets 
+vstring correctors = {"L2RelativeJetCorrectorKt6"} 
+untracked string alias = "L2JetCorJetKt6" 
+}
+module L2JetCorJetKt4 = JetCorrectionProducer { 
+InputTag src   = kt4CaloJets 
+vstring correctors = {"L2RelativeJetCorrectorKt4"} 
+untracked string alias = "L2JetCorJetKt4" 
+}
