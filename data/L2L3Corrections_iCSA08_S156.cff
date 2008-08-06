@@ -32,42 +32,42 @@ string label = 'L2L3JetCorrectorKt4'
 }
 
 /////////////// MODULES /////////////////////////////////////////////////////////////
-module L2L3ChainJetCorJetIcone5 = JetCorrectionProducer {
+module L2L3ChainJetCorJetIcone5 = CaloJetCorrectionProducer {
 InputTag src = iterativeCone5CaloJets
 vstring correctors = {"L2L3JetCorrectorIcone5"}
 untracked string alias = "L2L3ChainJetCorJetIcone5"
 untracked bool verbose = false
 }
 
-module L2L3ChainJetCorJetPFIcone5 = JetCorrectionProducer {
+module L2L3ChainJetCorJetPFIcone5 = PFJetCorrectionProducer {
 InputTag src = iterativeCone5PFJets
 vstring correctors = {"L2L3JetCorrectorPFIcone5"}
 untracked string alias = "L2L3ChainJetCorJetPFIcone5"
 untracked bool verbose = false
 }
 
-module L2L3ChainJetCorJetScone5 = JetCorrectionProducer {
+module L2L3ChainJetCorJetScone5 = CaloJetCorrectionProducer {
 InputTag src = sisCone5CaloJets
 vstring correctors = {"L2L3JetCorrectorScone5"}
 untracked string alias = "L2L3ChainJetCorJetScone5"
 untracked bool verbose = false
 }
 
-module L2L3ChainJetCorJetScone7 = JetCorrectionProducer {
+module L2L3ChainJetCorJetScone7 = CaloJetCorrectionProducer {
 InputTag src = sisCone7CaloJets
 vstring correctors = {"L2L3JetCorrectorScone7"}
 untracked string alias = "L2L3ChainJetCorJetScone7"
 untracked bool verbose = false
 }
 
-module L2L3ChainJetCorJetKt4 = JetCorrectionProducer {
+module L2L3ChainJetCorJetKt4 = CaloJetCorrectionProducer {
 InputTag src = kt4CaloJets
 vstring correctors = {"L2L3JetCorrectorKt4"}
 untracked string alias = "L2L3ChainJetCorJetKt4"
 untracked bool verbose = false
 }
 
-module L2L3ChainJetCorJetKt6 = JetCorrectionProducer {
+module L2L3ChainJetCorJetKt6 = CaloJetCorrectionProducer {
 InputTag src = kt6CaloJets
 vstring correctors = {"L2L3JetCorrectorKt6"}
 untracked string alias = "L2L3ChainJetCorJetKt6"

@@ -24,32 +24,32 @@ string tagName = 'iCSA08_S156_L3Absolute_Kt4'
 string label = 'L3AbsoluteJetCorrectorKt4' 
 }
 //************** Modules *************************************
-module L3JetCorJetIcone5 = JetCorrectionProducer { 
+module L3JetCorJetIcone5 = CaloJetCorrectionProducer { 
 InputTag src   = L2JetCorJetIcone5 
 vstring correctors = {"L3AbsoluteJetCorrectorIcone5"} 
 untracked string alias = "L3JetCorJetIcone5" 
 }
-module L3JetCorJetPFIcone5 = JetCorrectionProducer { 
+module L3JetCorJetPFIcone5 = CaloPFJetCorrectionProducer { 
 InputTag src   = L2JetCorJetPFIcone5 
 vstring correctors = {"L3AbsoluteJetCorrectorPFIcone5"} 
 untracked string alias = "L3JetCorJetPFIcone5" 
 } 
-module L3JetCorJetScone5 = JetCorrectionProducer { 
+module L3JetCorJetScone5 = CaloJetCorrectionProducer { 
 InputTag src   = L2JetCorJetScone5 
 vstring correctors = {"L3AbsoluteJetCorrectorScone5"} 
 untracked string alias = "L3JetCorJetScone5" 
 }
-module L3JetCorJetScone7 = JetCorrectionProducer { 
+module L3JetCorJetScone7 = CaloJetCorrectionProducer { 
 InputTag src   = L2JetCorJetScone7 
 vstring correctors = {"L3AbsoluteJetCorrectorScone7"} 
 untracked string alias = "L3JetCorJetScone7" 
 }
-module L3JetCorJetKt4 = JetCorrectionProducer { 
+module L3JetCorJetKt4 = CaloJetCorrectionProducer { 
 InputTag src   = L2JetCorJetKt4 
 vstring correctors = {"L3AbsoluteJetCorrectorKt4"} 
 untracked string alias = "L3JetCorJetKt4" 
 } 
-module L3JetCorJetKt6 = JetCorrectionProducer { 
+module L3JetCorJetKt6 = CaloJetCorrectionProducer { 
 InputTag src   = L2JetCorJetKt6 
 vstring correctors = {"L3AbsoluteJetCorrectorKt6"} 
 untracked string alias = "L3JetCorJetKt6" 
