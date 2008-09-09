@@ -35,6 +35,7 @@
    es_source JetPlusTrackZSPCorrectorIcone5 = JetPlusTrackCorrectionService {
             InputTag JetTrackCollectionAtVertex = iterativeCone5ZSPJetTracksAssociatorAtVertex
             InputTag JetTrackCollectionAtCalo = iterativeCone5ZSPJetTracksAssociatorAtCaloFace
+            InputTag muonSrc = muons
             int32 respalgo = 5
 	    bool AddOutOfConeTracks = true
 	    string NonEfficiencyFile = 'CMSSW_167_TrackNonEff'
