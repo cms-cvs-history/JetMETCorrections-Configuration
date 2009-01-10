@@ -1,7 +1,0 @@
-include "JetMETCorrections/Configuration/data/L2RelativeCorrection152.cff" 
-include "JetMETCorrections/Configuration/data/L3AbsoluteCorrection152.cff" 
-
-es_source L2L3JetCorrectorIcone5 = JetCorrectionServiceChain { 
-vstring correctors = {"L2RelativeJetCorrectorIcone5", "L3AbsoluteJetCorrectorIcone5"}
-string label = 'L2L3JetCorrectorIcone5' 
-} 
