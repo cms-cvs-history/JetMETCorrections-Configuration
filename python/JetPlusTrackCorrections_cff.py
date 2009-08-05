@@ -11,54 +11,6 @@ from RecoJets.Configuration.RecoJetAssociations_cff import *
 
 from JetMETCorrections.Configuration.JetPlusTrackCorrections_cfi import *
 
-#---------- Electron ID
-#for 22x
-from RecoEgamma.ElectronIdentification.electronIdCutBasedExt_cfi import *
-## eIDRobustLoose = eidCutBasedExt.clone()
-## eIDRobustLoose.electronQuality = 'robust'
-
-## eIDRobustTight = eidCutBasedExt.clone()
-## eIDRobustTight.electronQuality = 'robust'
-## eIDRobustTight.robustEleIDCuts.barrel = [0.015, 0.0092, 0.020, 0.0025]
-## eIDRobustTight.robustEleIDCuts.endcap = [0.018, 0.025, 0.020, 0.0040]
-## eIDRobustHighEnergy = eidCutBasedExt.clone()
-## eIDRobustHighEnergy.electronQuality = 'robust'
-## eIDRobustHighEnergy.robustEleIDCuts.barrel = [0.050, 0.011, 0.090, 0.005]
-## eIDRobustHighEnergy.robustEleIDCuts.endcap = [0.100, 0.0275, 0.090, 0.007]
-
-## eIDLoose = eidCutBasedExt.clone()
-## eIDLoose.electronQuality = 'loose'
-
-## eIDTight = eidCutBasedExt.clone()
-## eIDTight.electronQuality = 'loose'
-
-## eIdSequence = cms.Sequence(eIDRobustLoose+eIDRobustTight+eIDRobustHighEnergy+eIDLoose+eIDTight)
-
-#from RecoEgamma.ElectronIdentification.electronIdSequence_cfi import *
-eidRobustLoose = eidCutBasedExt.clone()
-eidRobustLoose.electronIDType = 'robust'
-eidRobustLoose.electronQuality = 'loose'
-
-eidRobustTight = eidCutBasedExt.clone()
-eidRobustTight.electronIDType = 'robust'
-eidRobustTight.electronQuality = 'tight'
-
-eidRobustHighEnergy = eidCutBasedExt.clone()
-eidRobustHighEnergy.electronIDType = 'robust'
-eidRobustHighEnergy.electronQuality = 'highenergy'
-
-eidLoose = eidCutBasedExt.clone()
-eidLoose.electronIDType = 'classbased'
-eidLoose.electronQuality = 'loose'
-
-eidTight = eidCutBasedExt.clone()
-eidTight.electronIDType = 'classbased'
-eidTight.electronQuality = 'tight'
-
-eIdSequence = cms.Sequence(eidRobustLoose+eidRobustTight+eidRobustHighEnergy+eidLoose+eidTight)
-#-----------
-
-
 JetPlusTrackZSPCorrectorIcone5 = cms.ESSource(
     "JetPlusTrackCorrectionService",
     JPTZSPCorrectorICone5,
@@ -85,7 +37,7 @@ ZSPiterativeCone5JetExtender.jet2TracksAtCALO = cms.InputTag("ZSPiterativeCone5J
 ZSPiterativeCone5JetExtender.jet2TracksAtVX = cms.InputTag("ZSPiterativeCone5JetTracksAssociatorAtVertex")
 
 
-ZSPrecoJetAssociations = cms.Sequence(eIdSequence*ZSPiterativeCone5JetTracksAssociatorAtVertex*ZSPiterativeCone5JetTracksAssociatorAtCaloFace*ZSPiterativeCone5JetExtender)
+ZSPrecoJetAssociations = cms.Sequence(ZSPiterativeCone5JetTracksAssociatorAtVertex*ZSPiterativeCone5JetTracksAssociatorAtCaloFace*ZSPiterativeCone5JetExtender)
 
 JetPlusTrackCorrections = cms.Sequence(ZSPrecoJetAssociations*JetPlusTrackZSPCorJetIcone5)
 
