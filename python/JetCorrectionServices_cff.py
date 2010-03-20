@@ -21,12 +21,17 @@ L1Offset = cms.ESSource(
     'LXXXCorrectionService',
     era = cms.string(''),
     level = cms.string('L1Offset'),
+    section   = cms.string(''),
     algorithm = cms.string('1PU_IC5Calo')
     )
 
 # L1 (Fastjet PU&UE Subtraction) Correction Service
 L1Fastjet = cms.ESSource(
     'L1FastjetCorrectionService',
+    era = cms.string(''),
+    level       = cms.string(''),
+    algorithm   = cms.string('1PU_IC5Calo'),
+    section     = cms.string(''),
     srcMedianPt = cms.InputTag('kt6PFJets')
     )
 
@@ -34,6 +39,7 @@ L1Fastjet = cms.ESSource(
 ak5CaloL2Relative = cms.ESSource(
     'LXXXCorrectionService',
     JetCorrectionEra,
+    section   = cms.string(''),
     level     = cms.string('L2Relative'),
     algorithm = cms.string('AK5Calo')
     )
@@ -43,6 +49,7 @@ ak5PFL2Relative = ak5CaloL2Relative.clone( algorithm = 'AK5PF' )
 ak5CaloL3Absolute = cms.ESSource(
     'LXXXCorrectionService',
     JetCorrectionEra,
+    section   = cms.string(''),
     level     = cms.string('L3Absolute'),
     algorithm = cms.string('AK5Calo')
     )
@@ -53,6 +60,8 @@ ak5PFL3Absolute   = ak5CaloL3Absolute.clone( algorithm = 'AK5PF' )
 ak5CaloL6SLB = cms.ESSource(
     'L6SLBCorrectionService',
     era                 = cms.string(''),
+    level               = cms.string('L6SLB'),
+    section             = cms.string(''),
     algorithm           = cms.string(''),
     addMuonToJet        = cms.bool(True),
     srcBTagInfoElectron = cms.InputTag('ak5CaloJetsSoftElectronTagInfos'),
@@ -61,6 +70,8 @@ ak5CaloL6SLB = cms.ESSource(
 ak5PFL6SLB = cms.ESSource(
     'L6SLBCorrectionService',
     era                 = cms.string(''),
+    level               = cms.string('L6SLB'),
+    section             = cms.string(''),
     algorithm           = cms.string(''),
     addMuonToJet        = cms.bool(False),
     srcBTagInfoElectron = cms.InputTag('ak5PFJetsSoftElectronTagInfos'),
