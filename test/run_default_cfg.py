@@ -65,7 +65,7 @@ process.ak5CaloJetsL2L3 * process.ak5CaloJetsL2L3Histos *
 # create the corrected pfjet collection and run the histogram module
 process.ak5PFJetsL2L3 * process.ak5PFJetsL2L3Histos *
 # create the jptjet collection
-process.ZSPJetCorrectionsAntiKt5 * process.ZSPrecoJetAssociationsAntiKt5 * process.ak5JPTJets *
+process.ZSPJetCorrectionsAntiKt5 * process.ak5JPTJets *
 # create the corrected jptjet collection and run the histogram module
 process.ak5JPTJetsL2L3 * process.ak5JPTJetsL2L3Histos
 )
