@@ -37,7 +37,8 @@ ak5CaloL2Relative = cms.ESSource(
     level     = cms.string('L2Relative'),
     algorithm = cms.string('AK5Calo')
     )
-ak5PFL2Relative = ak5CaloL2Relative.clone( algorithm = 'AK5PF' )
+ak5PFL2Relative  = ak5CaloL2Relative.clone( algorithm = 'AK5PF' )
+ak5JPTL2Relative = ak5CaloL2Relative.clone( algorithm = 'AK5JPT' )
 
 # L3 (absolute) Correction Services
 ak5CaloL3Absolute = cms.ESSource(
@@ -46,8 +47,8 @@ ak5CaloL3Absolute = cms.ESSource(
     level     = cms.string('L3Absolute'),
     algorithm = cms.string('AK5Calo')
     )
-ak5PFL3Absolute   = ak5CaloL3Absolute.clone( algorithm = 'AK5PF' )
-
+ak5PFL3Absolute  = ak5CaloL3Absolute.clone( algorithm = 'AK5PF' )
+ak5JPTL3Absolute = ak5CaloL3Absolute.clone( algorithm = 'AK5JPT' )
 
 # L6 (semileptonically decaying b-jet) Correction Services
 ak5CaloL6SLB = cms.ESSource(
@@ -80,6 +81,10 @@ ak5CaloL2L3 = cms.ESSource(
 ak5PFL2L3 = cms.ESSource(
     'JetCorrectionServiceChain',
     correctors = cms.vstring('ak5PFL2Relative','ak5PFL3Absolute')
+    )
+ak5JPTL2L3 = cms.ESSource(
+    'JetCorrectionServiceChain',
+    correctors = cms.vstring('ak5JPTL2Relative','ak5JPTL3Absolute')
     )
 
 # L1L2L3 CORRECTION SERVICES
