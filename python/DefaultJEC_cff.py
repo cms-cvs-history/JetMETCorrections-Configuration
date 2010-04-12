@@ -48,3 +48,11 @@ ak5JPTJetsL2L3  = cms.EDProducer('CaloJetCorrectionProducer',
 
 sc5JPTJetsL2L3  = ak5JPTJetsL2L3.clone(src = 'sc5JPTJets', correctors = ['sc5JPTL2L3'])
 ic5JPTJetsL2L3  = ak5JPTJetsL2L3.clone(src = 'ic5JPTJets', correctors = ['ic5JPTL2L3'])
+
+##------------------  TRACK JETS --------------------------------
+ak5TrackJetsL2L3 = cms.EDProducer('TrackJetCorrectionProducer',
+    src          = cms.InputTag('ak5TrackJets'),
+    correctors   = cms.vstring('ak5TrackL2L3')
+    )
+
+

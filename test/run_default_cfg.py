@@ -11,7 +11,7 @@ process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(-1) )
 process.source = cms.Source(
     'PoolSource',
     fileNames = cms.untracked.vstring(
-'/store/relval/CMSSW_3_5_5/RelValQCD_FlatPt_15_3000/GEN-SIM-RECO/MC_3XY_V25-v1/0007/E0707AC5-0F38-DF11-B1FD-0026189437E8.root'
+    '/store/relval/CMSSW_3_5_5/RelValQCD_FlatPt_15_3000/GEN-SIM-RECO/MC_3XY_V25-v1/0007/E0707AC5-0F38-DF11-B1FD-0026189437E8.root'
     )
 )
 
@@ -46,6 +46,11 @@ process.ak5PFJetsL2L3Histos = cms.EDAnalyzer(
     src = cms.InputTag('ak5PFJetsL2L3'),
     histograms = cms.VPSet(jetPtHistogram)
     )
+process.ak5TrackJetsL2L3Histos = cms.EDAnalyzer(
+    'CandViewHistoAnalyzer',
+    src = cms.InputTag('ak5TrackJetsL2L3'),
+    histograms = cms.VPSet(jetPtHistogram)
+    )
 process.ak5JPTJetsL2L3Histos = cms.EDAnalyzer(
     'CandViewHistoAnalyzer',
     src = cms.InputTag('ak5JPTJetsL2L3'),
@@ -64,6 +69,8 @@ process.run = cms.Path(
 process.ak5CaloJetsL2L3 * process.ak5CaloJetsL2L3Histos *
 # create the corrected pfjet collection and run the histogram module
 process.ak5PFJetsL2L3 * process.ak5PFJetsL2L3Histos *
+# create the corrected trackjet collection and run the histogram module
+process.ak5TrackJetsL2L3 * process.ak5TrackJetsL2L3Histos *
 # create the jptjet collection
 process.ZSPJetCorrectionsAntiKt5 * process.ak5JPTJets *
 # create the corrected jptjet collection and run the histogram module
