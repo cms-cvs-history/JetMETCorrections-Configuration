@@ -26,13 +26,13 @@ kt4PFJetsL2L3   = ak5PFJetsL2L3.clone(src = 'kt4PFJets', correctors = ['kt4PFL2L
 kt6PFJetsL2L3   = ak5PFJetsL2L3.clone(src = 'kt6PFJets', correctors = ['kt6PFL2L3'])
 ic5PFJetsL2L3   = ak5PFJetsL2L3.clone(src = 'iterativeCone5PFJets', correctors = ['ic5PFL2L3'])
 ##------------------  JPT JETS ----------------------------------
-ak5JPTJetsL2L3   = cms.EDProducer('JPTJetCorrectionProducer',
-    src         = cms.InputTag('JetPlusTrackZSPCorJetAntiKt5'),
-    correctors  = cms.vstring('ak5JPTL2L3')
-    )
-ic5JPTJetsL2L3   = ak5JPTJetsL2L3.clone(src = 'ic5JPTJets', correctors = ['ic5JPTL2L3'])
+#ak5JPTJetsL2L3   = cms.EDProducer('JPTJetCorrectionProducer',
+#    src         = cms.InputTag('JetPlusTrackZSPCorJetAntiKt5'),
+#    correctors  = cms.vstring('ak5JPTL2L3')
+#    )
+#ic5JPTJetsL2L3   = ak5JPTJetsL2L3.clone(src = 'ic5JPTJets', correctors = ['ic5JPTL2L3'])
 ##------------------  TRK JETS ----------------------------------
-ak5TrackJetsL2L3   = cms.EDProducer('TrackJetCorrectionProducer',
-    src         = cms.InputTag('ak5TrackJets'),
-    correctors  = cms.vstring('ak5TrackL2L3')
-    )
+#ak5TrackJetsL2L3   = cms.EDProducer('TrackJetCorrectionProducer',
+#    src         = cms.InputTag('ak5TrackJets'),
+#    correctors  = cms.vstring('ak5TrackL2L3')
+#    )
