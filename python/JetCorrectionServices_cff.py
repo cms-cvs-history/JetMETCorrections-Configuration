@@ -47,6 +47,17 @@ ak5PFL2Relative = ak5CaloL2Relative.clone( algorithm = 'AK5PF' )
 ak5JPTL2Relative = ak5CaloL2Relative.clone( algorithm = 'AK5JPT' )
 ak5TrackL2Relative = ak5CaloL2Relative.clone( algorithm = 'AK5TRK' )
 
+# Residual Correction Services
+ak5CaloResidual = cms.ESSource(
+    'LXXXCorrectionService',
+    era = cms.string('Spring10DataV1'),
+    section   = cms.string(''),
+    level     = cms.string('L2L3Residual'),
+    algorithm = cms.string('AK5Calo')
+    )
+ak5PFResidual  = ak5CaloResidual.clone( algorithm = 'AK5PF' )
+ak5JPTResidual = ak5CaloResidual.clone( algorithm = 'AK5JPT' )
+
 # L3 (absolute) Correction Services
 ak5CaloL3Absolute = cms.ESSource(
     'LXXXCorrectionService',
@@ -103,7 +114,19 @@ ak5TrackL2L3 = cms.ESSource(
     'JetCorrectionServiceChain',
     correctors = cms.vstring('ak5TrackL2Relative','ak5TrackL3Absolute')
     )
-
+# L2L3Residual CORRECTION SERVICES
+ak5CaloL2L3Residual = cms.ESSource(
+    'JetCorrectionServiceChain',
+    correctors = cms.vstring('ak5CaloL2Relative','ak5CaloL3Absolute','ak5CaloResidual')
+    )
+ak5PFL2L3Residual = cms.ESSource(
+    'JetCorrectionServiceChain',
+    correctors = cms.vstring('ak5PFL2Relative','ak5PFL3Absolute','ak5PFResidual')
+    )
+ak5JPTL2L3Residual = cms.ESSource(
+    'JetCorrectionServiceChain',
+    correctors = cms.vstring('ak5JPTL2Relative','ak5JPTL3Absolute','ak5JPTResidual')
+    )
 # L1L2L3 CORRECTION SERVICES
 ak5CaloL1L2L3 = ak5CaloL2L3.clone()
 ak5CaloL1L2L3.correctors.insert(0,'L1Fastjet')
