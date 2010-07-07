@@ -9,7 +9,9 @@
 ################################################################################
 import FWCore.ParameterSet.Config as cms
 
-from JetMETCorrections.Configuration.JetCorrectionCondDB_cff import *
+# This is now pulled from the Global Tag. For testing purposes, you can
+# continue to use this file but it is no longer on by default.
+#from JetMETCorrections.Configuration.JetCorrectionCondDB_cff import *
 
 
 #
