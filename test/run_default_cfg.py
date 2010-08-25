@@ -26,8 +26,8 @@ process.source = cms.Source(
 
 process.load('Configuration.StandardSequences.Services_cff')
 process.load('Configuration.StandardSequences.FrontierConditions_GlobalTag_cff')
-process.GlobalTag.globaltag = 'START38_V6::All'
-process.GlobalTag.connect = 'sqlite_file:START38_V6.db'
+process.GlobalTag.globaltag = 'START38_V8::All'
+#process.GlobalTag.connect = 'sqlite_file:START38_V6.db'
 process.load('JetMETCorrections.Configuration.DefaultJEC_cff')
 process.load('JetMETCorrections.Configuration.JetCorrectionProducersAllAlgos_cff')
 
@@ -59,8 +59,8 @@ process.ak7PFL2L3Histos = process.ak5CaloL2L3Histos.clone(src = 'ak7PFJetsL2L3')
 process.kt4PFL2L3Histos = process.ak5CaloL2L3Histos.clone(src = 'kt4PFJetsL2L3')
 #process.kt6PFL2L3Histos = process.ak5CaloL2L3Histos.clone(src = 'kt6PFJetsL2L3')
 
-#process.ak5JPTL2L3Histos = process.ak5CaloL2L3Histos.clone(src = 'ak5JPTJetsL2L3')
-#process.ak5TrackL2L3Histos = process.ak5CaloL2L3Histos.clone(src = 'ak5TrackJetsL2L3')
+process.ak5JPTL2L3Histos = process.ak5CaloL2L3Histos.clone(src = 'ak5JPTJetsL2L3')
+process.ak5TrackL2L3Histos = process.ak5CaloL2L3Histos.clone(src = 'ak5TrackJetsL2L3')
 
 #
 # RUN!
@@ -72,12 +72,12 @@ process.kt4CaloJetsL2L3 * process.kt4CaloL2L3Histos *
 #process.kt6CaloJetsL2L3 * process.kt6CaloL2L3Histos * 
 #------ create the corrected pfjet collection and run the histogram module --------
 process.ak5PFJetsL2L3 * process.ak5PFL2L3Histos * process.ak7PFJetsL2L3 * process.ak7PFL2L3Histos *
-process.kt4PFJetsL2L3 * process.kt4PFL2L3Histos  
+process.kt4PFJetsL2L3 * process.kt4PFL2L3Histos *
 #process.kt6PFJetsL2L3 * process.kt6PFL2L3Histos *
 #------ create the corrected jptjet collection and run the histogram module -------
-#process.ak5JPTJetsL2L3 * process.ak5JPTL2L3Histos *
+process.ak5JPTJetsL2L3 * process.ak5JPTL2L3Histos *
 #------ create the corrected trackjet collection and run the histogram module -----
-#process.ak5TrackJetsL2L3 * process.ak5TrackL2L3Histos
+process.ak5TrackJetsL2L3 * process.ak5TrackL2L3Histos
 )
 
 
