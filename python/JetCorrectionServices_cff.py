@@ -50,7 +50,7 @@ ak5TrackL2Relative = ak5CaloL2Relative.clone( algorithm = 'AK5TRK' )
 # Residual Correction Services
 ak5CaloResidual = cms.ESSource(
     'LXXXCorrectionService',
-    era = cms.string('Spring10DataV1'),
+    era = cms.string('Spring10DataV2'),
     section   = cms.string(''),
     level     = cms.string('L2L3Residual'),
     algorithm = cms.string('AK5Calo')
